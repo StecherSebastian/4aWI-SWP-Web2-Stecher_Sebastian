@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-bg-color: #232136;
+    --secondary-bg-color: #2a273f;
+    --tertiary-bg-color: #393552;
+    --low-contrast-fg-color: #6e6a86;
+    --med-contrast-fg-color: #908caa;
+    --text-color: #e0def4;
+    --highlight-low-color: #2a283e;
+    --highlight-med-color: #44415a;
+    --highlight-high-color: #56526e;
+    --rounded-border: 7.5px;
+}
+
+body {
+    font-family: 'Roboto', 'Roboto Mono', monospace, sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-bg-color);
+}
+
+.surface {
+    padding: 2rem;
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+button,
+input,
+select,
+textarea,
+.surface {
+    color: var(--text-color);
+    border-radius: var(--rounded-border);
+}
+
+button {
+    margin: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: var(--highlight-high-color);
+    cursor: pointer;
+}
