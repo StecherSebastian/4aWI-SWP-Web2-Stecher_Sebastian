@@ -1,23 +1,21 @@
-.primary {
+button {
     background-color: var(--secondary-bg-color);
 }
-.primary:hover {
+button:hover {
     background-color: var(--tertiary-bg-color);
     color: var(--highlight-color)
 }
 
-.create, .edit {
-    background-color: var(--secondary-bg-color);
+.add, .edit {
     color: var(--highlight-color);
 }
-.create:hover, .edit:hover {
+.add:hover, .edit:hover {
     background-color: var(--hover-highlight-color);
 }
 
-.delete {
-    background-color: var(--secondary-bg-color);
+.delete, .remove {
     color: var(--warning-color);
 }
-.delete:hover {
+.delete:hover, .remove:hover {
     background-color: var(--hover-warning-color);
 }

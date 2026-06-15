@@ -1,5 +1,5 @@
 export type ButtonVariant =
-    | 'primary'
-    | 'create'
+    | 'add'
     | 'edit'
+    | 'remove'
     | 'delete'

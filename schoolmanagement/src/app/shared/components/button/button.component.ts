@@ -1,15 +1,23 @@
 import { Component, Input } from "@angular/core";
 import { ButtonConfig } from "./button-config.interface";
+import { ButtonVariant } from "./button.types";
 
 @Component({
     selector: 'app-button',
     templateUrl: 'button.component.html',
     styleUrl: 'button.component.css'
 })
-export class Button{
-    @Input({required: true}) config!: ButtonConfig;
+export class Button {
+    @Input({ required: true }) config!: ButtonConfig;
 
-    variant = this.config.variant ?? 'primary';
-    icon = this.config.icon
-    label = this.config.label
+    get icon(): string {
+        return this.config.icon ?? this.iconMap[this.config.variant];
+    }
+
+    readonly iconMap: Record<ButtonVariant, string> = {
+        add: 'add',
+        edit: 'edit',
+        remove: 'remove',
+        delete: 'delete'
+    };
 }
