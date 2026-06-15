@@ -1,6 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ButtonConfig } from "./app-button-config.interface";
-import { ButtonVariant } from "./app-button.types";
+import { AppButtonVariant } from "./app-button.types";
 
 @Component({
     selector: 'app-button',
@@ -8,13 +7,15 @@ import { ButtonVariant } from "./app-button.types";
     styleUrl: 'app-button.component.css'
 })
 export class AppButton {
-    @Input({ required: true }) config!: ButtonConfig;
+    @Input() label?: string;
+    @Input({ required: true }) variant!: AppButtonVariant;
+    @Input() icon?: string;
 
-    get icon(): string {
-        return this.config.icon ?? this.iconMap[this.config.variant];
+    get resolvedIcon(): string {
+        return this.icon ?? this.iconMap[this.variant];
     }
 
-    readonly iconMap: Record<ButtonVariant, string> = {
+    readonly iconMap: Record<AppButtonVariant, string> = {
         add: 'add',
         edit: 'edit',
         remove: 'remove',

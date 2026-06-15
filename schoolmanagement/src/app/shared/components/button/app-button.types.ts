@@ -1,4 +1,4 @@
-export type ButtonVariant =
+export type AppButtonVariant =
     | 'add'
     | 'edit'
     | 'remove'
