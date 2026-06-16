@@ -8,11 +8,13 @@ import { AppButtonVariant } from "./app-button.types";
 })
 export class AppButton {
     @Input() label?: string;
-    @Input({ required: true }) variant!: AppButtonVariant;
+    @Input() variant?: AppButtonVariant;
     @Input() icon?: string;
 
     get resolvedIcon(): string {
-        return this.icon ?? this.iconMap[this.variant];
+        if (this.variant)
+            return this.icon ?? this.iconMap[this.variant];
+        else return '';
     }
 
     readonly iconMap: Record<AppButtonVariant, string> = {
