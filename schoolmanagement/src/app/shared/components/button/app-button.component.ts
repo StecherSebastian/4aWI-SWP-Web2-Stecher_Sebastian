@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input, computed } from "@angular/core";
 import { AppButtonVariant } from "./app-button.types";
 
 @Component({
@@ -7,17 +7,14 @@ import { AppButtonVariant } from "./app-button.types";
     styleUrl: 'app-button.component.css'
 })
 export class AppButton {
-    @Input() label?: string;
-    @Input() variant?: AppButtonVariant;
-    @Input() icon?: string;
+    label = input<string>();
+    variant = input<AppButtonVariant>('default');
+    icon = input<string>();
 
-    get resolvedIcon(): string {
-        if (this.variant)
-            return this.icon ?? this.iconMap[this.variant];
-        else return '';
-    }
+    resolvedIcon = computed<string>(() => this.iconMap[this.variant()])
 
-    readonly iconMap: Record<AppButtonVariant, string> = {
+    private readonly iconMap: Record<AppButtonVariant, string> = {
+        default: '',
         add: 'add',
         edit: 'edit',
         remove: 'remove',

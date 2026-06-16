@@ -17,12 +17,15 @@ describe('AppButton', () => {
     });
 
     it('should bind correct label', () => {
-        component.label = 'BUTTON',
+        const expectedLabel = 'BUTTON'
+
+        fixture.componentRef.setInput('label', expectedLabel);
 
         fixture.detectChanges();
 
-        const button = fixture.nativeElement.querySelector('button')
-        expect(button.textContent).toContain('BUTTON');
+        expect(component.label()).toBe(expectedLabel);
+        const button = fixture.nativeElement.querySelector('button');
+        expect(button.textContent).toContain(expectedLabel);
     });
 
     it('should select the correct icon and class for each variant', () => {
@@ -37,11 +40,12 @@ describe('AppButton', () => {
             const fixture = TestBed.createComponent(AppButton);
             const component = fixture.componentInstance;
 
-            component.variant = variant;
+            fixture.componentRef.setInput('variant', variant);
 
             fixture.detectChanges();
 
-            expect(component.variant).toBe(variant);
+            expect(component.variant()).toBe(variant);
+            expect(component.resolvedIcon()).toBe(expectedIcon);
             const icon = fixture.nativeElement.querySelector('i');
             expect(icon.className).toBe(expectedIcon);
         });
