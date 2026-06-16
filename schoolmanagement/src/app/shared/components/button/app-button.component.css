@@ -1,0 +1,21 @@
+button, .default {
+    background-color: var(--secondary-bg-color);
+}
+button:hover, .default {
+    background-color: var(--tertiary-bg-color);
+    color: var(--highlight-color)
+}
+
+.add, .edit {
+    color: var(--highlight-color);
+}
+.add:hover, .edit:hover {
+    background-color: var(--hover-highlight-color);
+}
+
+.delete, .remove {
+    color: var(--warning-color);
+}
+.delete:hover, .remove:hover {
+    background-color: var(--hover-warning-color);
+}

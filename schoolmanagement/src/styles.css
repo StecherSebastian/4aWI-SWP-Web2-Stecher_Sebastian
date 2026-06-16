@@ -3,6 +3,13 @@
   --secondary-bg-color: #343A40;
   --tertiary-bg-color: #49525A;
   --highlight-color: #F19953;
+  --hover-highlight-color: #644C3A;
   --warning-color: #E63946;
+  --hover-warning-color: #6F3E42;
   --font-color: #F8F9FA;
+}
+
+main {
+  background-color: var(--primary-bg-color);
+  color: var(--font-color);
 }
