@@ -1,5 +1,6 @@
-import { Component, input, computed } from "@angular/core";
+import { Component, input, computed, inject } from "@angular/core";
 import { AppButtonVariant } from "./app-button.types";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-button',
@@ -10,6 +11,7 @@ export class AppButton {
     label = input<string>();
     variant = input<AppButtonVariant>('default');
     icon = input<string>();
+    route = input<string>();
 
     resolvedIcon = computed<string>(() => this.iconMap[this.variant()])
 
@@ -20,4 +22,14 @@ export class AppButton {
         remove: 'remove',
         delete: 'delete'
     };
+
+    private readonly router = inject(Router);
+
+    protected onClick(): void {
+        const route = this.route();
+
+        if (route) {
+            this.router.navigate([route]);
+        }
+    }
 }

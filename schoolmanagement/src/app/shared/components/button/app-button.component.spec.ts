@@ -1,12 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppButton } from './app-button.component';
+import { Router } from '@angular/router';
 
 describe('AppButton', () => {
     let component: AppButton;
     let fixture: ComponentFixture<AppButton>;
+    let routerMock: Pick<Router, 'navigate'>;
 
     beforeEach(async () => {
-        TestBed.configureTestingModule({});
+        routerMock = {
+            navigate: vi.fn(),
+        };
+
+        TestBed.configureTestingModule({
+             providers: [{ provide: Router, useValue: routerMock }]
+        });
 
         fixture = TestBed.createComponent(AppButton);
         component = fixture.componentInstance;
@@ -49,5 +57,16 @@ describe('AppButton', () => {
             const icon = fixture.nativeElement.querySelector('i');
             expect(icon.className).toBe(expectedIcon);
         });
+    });
+
+    it('should navigate to given route', () => {
+        const expectedRoute = '/dashboard';
+
+        fixture.componentRef.setInput('route', expectedRoute);
+
+        const button = fixture.nativeElement.querySelector('button');
+        button.click()
+
+        expect(routerMock.navigate).toHaveBeenCalled()
     });
 });
