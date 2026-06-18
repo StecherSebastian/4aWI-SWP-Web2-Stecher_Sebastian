@@ -7,4 +7,4 @@ import { RouterLink } from "@angular/router";
     styleUrl: 'sidebar.component.css',
     imports: [RouterLink]
 })
-export class Sidbar {};
+export class Sidebar {};
