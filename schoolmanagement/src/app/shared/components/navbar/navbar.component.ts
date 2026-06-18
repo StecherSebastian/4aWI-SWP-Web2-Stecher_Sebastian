@@ -1,12 +1,10 @@
 import { Component } from "@angular/core";
-import { AppButton } from "../button/app-button.component";
+import { RouterLink } from "@angular/router";
 
-@Component ({
+@Component({
     selector: 'navbar',
     templateUrl: 'navbar.component.html',
     styleUrl: 'navbar.component.css',
-    imports: [AppButton]
+    imports: [RouterLink]
 })
-export class Navbar{
-
-};
+export class Navbar {};
