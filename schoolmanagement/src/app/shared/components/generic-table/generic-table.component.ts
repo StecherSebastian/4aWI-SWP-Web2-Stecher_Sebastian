@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { Component, input, output } from "@angular/core";
 
 @Component({
     selector: 'generic-table',
@@ -8,4 +8,5 @@ import { Component, input } from "@angular/core";
 export class GenericTable<T>{
     data = input<T[]>([]);
     columns = input<{ key: keyof T, label: string }[]>([])
+    rowClick = output<T>()
 };

@@ -74,4 +74,22 @@ describe('GenericTable', () => {
         const cell = fixture.nativeElement.querySelector('tbody td');
         expect(cell.textContent.trim()).toBe('John');
     });
+
+    it('should emit clicked row', () => {
+        fixture.componentRef.setInput('columns', [
+            { key: 'name', label: 'Name' }
+        ]);
+        fixture.componentRef.setInput('data', [
+            { name: 'John' }
+        ]);
+
+        fixture.detectChanges();
+
+        const emitSpy = vi.spyOn(component.rowClick, 'emit');
+
+        const row = fixture.nativeElement.querySelector('tbody tr');
+        row.click();
+
+        expect(emitSpy).toHaveBeenCalledWith({ name: 'John' });
+    });
 });
