@@ -5,7 +5,7 @@ describe('AppButton', () => {
     let component: AppButton;
     let fixture: ComponentFixture<AppButton>;
 
-    beforeEach(async () => {
+    beforeEach(() => {
         TestBed.configureTestingModule({});
 
         fixture = TestBed.createComponent(AppButton);
