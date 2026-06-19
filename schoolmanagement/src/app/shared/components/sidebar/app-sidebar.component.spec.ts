@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-import { Sidebar } from './sidebar.component';
+import { AppSidebar } from './app-sidebar.component';
 
 describe('Sidebar', () => {
-    let component: Sidebar;
-    let fixture: ComponentFixture<Sidebar>
+    let component: AppSidebar;
+    let fixture: ComponentFixture<AppSidebar>
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -15,7 +15,7 @@ describe('Sidebar', () => {
             ]
         });
 
-        fixture = TestBed.createComponent(Sidebar);
+        fixture = TestBed.createComponent(AppSidebar);
         component = fixture.componentInstance;
     });
 
@@ -40,7 +40,7 @@ describe('Sidebar', () => {
         );
 
         const routes = links.map(
-            link => link.injector.get(RouterLink).routerLink
+            link => link.injector.get(RouterLink).href
         );
 
         expect(routes).toEqual([
