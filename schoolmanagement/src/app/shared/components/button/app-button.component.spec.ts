@@ -52,13 +52,13 @@ describe('AppButton', () => {
     });
 
     it('should emit output when clicked', () => {
-        vi.spyOn(component.clicked, 'emit');
+        const emitSpy = vi.spyOn(component.clicked, 'emit');
 
         fixture.detectChanges();
 
         const button = fixture.nativeElement.querySelector('button');
         button.click();
 
-        expect(component.clicked.emit).toHaveBeenCalledWith();
+        expect(emitSpy).toHaveBeenCalledWith();
     });
 });

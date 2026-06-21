@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+            @for (column of columns(); track column.label) {
+            <th> {{ column.label }} </th>
+            }
+            @if (actionsTemplate()) {
+            <th> Action/s </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (row of data(); track row) {
+        <tr (click)="rowClick.emit(row)">
+            @for (column of columns(); track column.key) {
+            <td> {{ row[column.key] }} </td>
+            }
+            @if (actionsTemplate()) {
+            <td>
+                <ng-container [ngTemplateOutlet]="actionsTemplate()" />
+            </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
