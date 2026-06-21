@@ -82,7 +82,7 @@ describe('GenericTable', () => {
     });
 });
 
-describe('GenericTableComponent with action template', () => {
+describe('GenericTable with action template', () => {
     let fixture: ComponentFixture<TestHostComponent>;
 
 
