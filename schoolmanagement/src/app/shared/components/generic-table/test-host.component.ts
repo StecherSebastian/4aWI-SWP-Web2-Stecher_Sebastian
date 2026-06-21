@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, viewChild, ViewChild } from "@angular/core";
 import { GenericTable } from "./generic-table.component";
 import { TableColumn } from "./table-column.interface";
 import { TestType } from "./test-type.interface";
@@ -18,8 +18,8 @@ import { TestType } from "./test-type.interface";
   imports: [GenericTable]
 })
 export class TestHostComponent {
+  tableComponentRef = viewChild<GenericTable<TestType>>(GenericTable);
   columns: TableColumn<TestType>[] = [{ key: 'name', label: 'Name' }];
-
   data: TestType[] = [
     { name: 'John' },
     { name: 'Jasmine' }

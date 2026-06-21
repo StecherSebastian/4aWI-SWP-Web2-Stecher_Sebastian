@@ -94,6 +94,12 @@ describe('GenericTableComponent with action template', () => {
         fixture.detectChanges();
     });
 
+    it('should bind action template to input', () => {
+        const component = fixture.debugElement.componentInstance;
+        const table = component.tableComponentRef();
+        expect(table.actionsTemplate()).toBeDefined();
+    });
+
     it('should render action header when action template provided', () => {
         const header = fixture.nativeElement.querySelectorAll('th');
         expect(header.length).toBe(2);
